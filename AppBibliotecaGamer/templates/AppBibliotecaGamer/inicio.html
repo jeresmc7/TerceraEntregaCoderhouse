@@ -1,0 +1,31 @@
+{% extends 'AppBibliotecaGamer/padre.html' %}
+
+{% block titulo %}
+    Inicio
+{% endblock %}
+
+{% block contenido %}
+            <div class="col-lg-6">
+                <h3>Buscar juegos</h3>
+                <form action="{% url 'buscar-juegos' %}" method="GET">
+                    {% csrf_token %}
+                    <input type="text" name="juego" id="juego">
+                    <input type="submit" value="Buscar">
+                </form>
+                <div class="shadow d-flex justify-content-center align-items-center p-3 mb-2 bg-dark rounded-lg flex-column">
+                    {% if juegos %}
+                    <h1 class="text-light">Juegos disponibles</h1>
+                    <ul class="text-light">
+                        {% for juego in juegos %}
+                            <li> {{juego.nombre}} ({{juego.valoracion}}) </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <h1>No hay juegos que mostrar</h1>
+                    {% endif %}
+                </div>
+            </div>
+       
+{% endblock contenido %}
+
+<!-- : {{ juego.categoria }} -->

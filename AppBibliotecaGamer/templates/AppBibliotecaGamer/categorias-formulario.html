@@ -1,0 +1,26 @@
+{% extends 'AppBibliotecaGamer/padre.html' %}
+
+{% block titulo %}
+    Form Juegos
+{% endblock %}
+
+{% block contenido %}
+        <section class="features-icons bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Hola {{nombre}}
+                        <form action="{% url 'categorias-formulario' %}" method="post">
+                            {% csrf_token %}
+
+                            <table>
+                                {{ formulario_categorias.as_table }}
+                            </table>
+
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock contenido %}

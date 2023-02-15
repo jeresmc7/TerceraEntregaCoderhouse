@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-# Create your models here.
-
 class Juego(models.Model):
     nombre = models.CharField(max_length=40)
     categoria = models.CharField(max_length=40)
